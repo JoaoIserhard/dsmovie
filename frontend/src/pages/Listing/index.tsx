@@ -12,23 +12,19 @@ function Listing() {
   useEffect(() => {
     axios.get(`${BASE_URL}/movies?size=12&page=0`).then(response => {
       const data = response.data as MoviePage;
-      console.log(data)
       setPageNumber(data.number);
     });
-
-
   }, []);
-
 
   return (
     <>
       <Pagination />
       <div className="container">
-      <div className="row">
-        <div className="col-sm-6 colg-lg-4 col-xl-3 col-xx1-2 mb-3">
-          <MovieCard />
+        <div className="row">
+          <div className="col-sm-6 colg-lg-4 col-xl-3 col-xx1-2 mb-3">
+            <MovieCard />
+          </div>
         </div>
-      </div>
       </div>
     </>
   );
